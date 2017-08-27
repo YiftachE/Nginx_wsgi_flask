@@ -1,0 +1,12 @@
+[Unit]
+Description=uWSGI server instance configured to serve redis_app
+
+[Service]
+User=www-data
+Group=www-data
+Environment=PATH=/home/yiftach/.pyenv/versions/3.6.2/bin:$PATH
+Environment=PYTHONPATH=/home/yiftach/nginx_test/tutorial/:$PYTHONPATH
+ExecStart=/home/yiftach/.pyenv/versions/3.6.2/bin/uwsgi --ini /home/yiftach/nginx_test/tutorial/redis_app.ini
+
+[Install]
+WantedBy=multi-user.target
